@@ -1,145 +1,354 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="generator" content="jemdoc, see http://jemdoc.jaboc.net/" />
-  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
   <link rel="stylesheet" href="jemdoc.css" type="text/css" />
-  <title>Longxin Kou-寇龙馨</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <title>Longxin Kou - 寇龙馨 | AI Researcher</title>
+  <style>
+    :root {
+      --primary-color: #2563eb;
+      --secondary-color: #64748b;
+      --accent-color: #f59e0b;
+      --text-color: #1f2937;
+      --light-gray: #f8fafc;
+      --border-color: #e2e8f0;
+      --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    }
+    
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      color: var(--text-color);
+    }
+    
+    .profile-section {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 3rem 0;
+      margin: -1rem -1rem 2rem -1rem;
+      border-radius: 0 0 20px 20px;
+    }
+    
+    .profile-container {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+    
+    .profile-image {
+      border-radius: 50%;
+      box-shadow: var(--shadow-lg);
+      border: 4px solid rgba(255, 255, 255, 0.2);
+      transition: transform 0.3s ease;
+    }
+    
+    .profile-image:hover {
+      transform: scale(1.05);
+    }
+    
+    .profile-info h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      background: linear-gradient(45deg, #fff, #e2e8f0);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .profile-info .subtitle {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+      opacity: 0.9;
+    }
+    
+    .contact-links {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    
+    .contact-links a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      text-decoration: none;
+      border-radius: 25px;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+    }
+    
+    .contact-links a:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: translateY(-2px);
+    }
+    
+    .section {
+      margin: 2rem 0;
+      padding: 2rem;
+      background: white;
+      border-radius: 15px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border-color);
+    }
+    
+    .section h2 {
+      color: var(--primary-color);
+      font-size: 2rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 3px solid var(--primary-color);
+      display: inline-block;
+    }
+    
+    .education-item, .news-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+      padding: 1.5rem;
+      background: var(--light-gray);
+      border-radius: 12px;
+      border-left: 4px solid var(--primary-color);
+    }
+    
+    .education-item img {
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+    }
+    
+    .news-item {
+      border-left-color: var(--accent-color);
+    }
+    
+    .news-date {
+      color: var(--accent-color);
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+    
+    .publication-item {
+      display: flex;
+      gap: 1.5rem;
+      padding: 2rem;
+      background: white;
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border-color);
+      margin-bottom: 1.5rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .publication-item:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-lg);
+    }
+    
+    .publication-image {
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+    }
+    
+    .research-interests {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-top: 1rem;
+    }
+    
+    .research-tag {
+      background: linear-gradient(135deg, var(--primary-color), #1e40af);
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+    
+    @media (max-width: 768px) {
+      .profile-container {
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      .contact-links {
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+      
+      .education-item, .publication-item {
+        flex-direction: column;
+      }
+    }
+  </style>
 </head>
 
 <body>
   <div id="layout-content">
-    <div id="toptitle">
-      <h1>Longxin Kou-寇龙馨</h1>
+    <!-- Profile Section -->
+    <div class="profile-section">
+      <div class="profile-container">
+        <div>
+          <img src="picture/Longxin_Kou.jpg" alt="Longxin Kou" class="profile-image" width="150px" />
+        </div>
+        <div class="profile-info">
+          <h1>Longxin Kou</h1>
+          <h1 style="font-size: 2rem; margin-top: -1rem;">寇龙馨</h1>
+          <div class="subtitle">Master Student in Software Engineering</div>
+          <div class="subtitle">Deep Reinforcement Learning Lab, Tianjin University</div>
+          
+          <div class="contact-links">
+            <a href="mailto:longxinkou@tju.edu.cn">
+              <i class="fas fa-envelope"></i> Email
+            </a>
+            <a href="https://scholar.google.com/citations?user=yfGou9cAAAAJ" target="_blank">
+              <i class="fas fa-graduation-cap"></i> Google Scholar
+            </a>
+            <a href="https://github.com/LongXinKou/" target="_blank">
+              <i class="fab fa-github"></i> GitHub
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
-    <table class="imgtable">
-      <tr>
-        <td>
-          <a href="https://longxinkou.github.io/"><img src="picture/Longxin_Kou.jpg" alt="alt text" width="120px" /></a>&nbsp;
-        </td>
-        <td align="left">
-          <!-- <p>Postgraduate student<br /> -->
-            <!-- <a href="http://cic.tju.edu.cn/">Department of Intelligence and Computing, Tianjin University</a><br /> -->
-            <!-- 天津, 湖南 410082, 中国 <br /> -->
-            <!-- 手机: +86 181 1667 3782 <br /> -->
-            Email: longxinkou@tju.edu.cn <br />
-            <br />
-            <!-- <a href="pdf/Aikun_Xu_CV.pdf">[我的简历]</a> <a href="EnHome.html">[English Page]</a> -->
-            <a href="https://scholar.google.com/citations?user=yfGou9cAAAAJ">[Google Scholar]</a>
-            <a href="https://github.com/LongXinKou/">[GitHub]
-            <!-- <a href="https://blog.csdn.net/koulongxin123?spm=1010.2135.3001.5421">[CSDN] -->
+
+    <!-- About Section -->
+    <div class="section">
+      <h2><i class="fas fa-user"></i> About Me</h2>
+      <p style="font-size: 1.1rem; line-height: 1.8;">
+        I am currently a third-year master student at the <a href="http://www.icdai.org/" target="_blank">Deep Reinforcement Learning (DRL) Lab</a>, 
+        Tianjin University, advised by Prof. <a href="http://www.icdai.org/jianye.html">Jianye Hao</a>. I am also co-advised by Prof. <a href="https://yanzzzzz.github.io/"> Yan Zheng</a>. 
+        I received my Bachelor's degree in Internet of Things Engineering from <a href="https://csee.hnu.edu.cn/index.htm" target="_blank">the School of Information Science and Engineering at Hunan University</a> in June 2023.
+      </p>
+      
+      <h3 style="color: var(--primary-color); margin-top: 2rem;">Research Interests</h3>
+      <div class="research-interests">
+        <span class="research-tag">Embodied AI</span>
+        <span class="research-tag">Video Understanding</span>
+        <span class="research-tag">Multimodal Large Language Models</span>
+        <span class="research-tag">Video Large Language Models</span>
+        <span class="research-tag">Robot Manipulation</span>
+      </div>
+    </div>
+
+    <!-- Education Section -->
+    <div class="section">
+      <h2><i class="fas fa-university"></i> Educational Experience</h2>
+      
+      <div class="education-item">
+        <img src="picture/tju.png" alt="Tianjin University" width="80px" />
+        <div>
+          <h3 style="color: var(--primary-color); margin-bottom: 0.5rem;">
+            Master - <a href="https://www.tju.edu.cn/" target="_blank">Tianjin University</a> 
+            <span style="color: var(--secondary-color); font-weight: normal;">(2023.9 ~ Present)</span>
+          </h3>
+          <p><strong>Department:</strong> School of Intelligent and Computing</p>
+          <p><strong>Major:</strong> Software Engineering</p>
+          <p><strong>Lab:</strong> Deep Reinforcement Learning (DRL) Lab</p>
+        </div>
+      </div>
+
+      <div class="education-item">
+        <img src="picture/hnu.png" alt="Hunan University" width="80px" />
+        <div>
+          <h3 style="color: var(--primary-color); margin-bottom: 0.5rem;">
+            Bachelor - <a href="https://www.hnu.edu.cn/" target="_blank">Hunan University</a> 
+            <span style="color: var(--secondary-color); font-weight: normal;">(2019.9 ~ 2023.7)</span>
+          </h3>
+          <p><strong>Department:</strong> School of Information Science and Engineering</p>
+          <p><strong>Major:</strong> Internet of Things Engineering</p>
+          <p><strong>Scholarships:</strong> National Scholarship (2022.10), Aiwan Medical Scholarship (2023.04)</p>
+          <p><strong>Honors:</strong> University "Three Good Student" Honor, University Outstanding Graduate</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- News Section -->
+    <div class="section">
+      <h2><i class="fas fa-newspaper"></i> Latest News</h2>
+      
+      <div class="news-item">
+        <div>
+          <div class="news-date">June 26, 2025</div>
+          <p>🎉 Our paper "<em>RoboAnnotatorX: A Comprehensive and Universal Annotation Framework for Accurate Understanding of Long-horizon Robot Demonstration</em>" has been accepted at <strong style="color: var(--accent-color);">ICCV 2025</strong>!</p>
+        </div>
+      </div>
+
+      <div class="news-item">
+        <div>
+          <div class="news-date">September 26, 2024</div>
+          <p>🎉 Our paper "<em>PERIA: Perceive, Reason, Imagine, Act via Holistic Language and Vision Planning for Manipulation</em>" has been accepted at <strong style="color: var(--accent-color);">NeurIPS 2024</strong>!</p>
+        </div>
+      </div>
+
+      <div class="news-item">
+        <div>
+          <div class="news-date">May 2, 2024</div>
+          <p>🎉 Our paper "<em>KISA: A Unified Keyframe Identifier and Skill Annotator for Long-Horizon Robotics Demonstrations</em>" has been accepted at <strong style="color: var(--accent-color);">ICML 2024</strong>!</p>
+        </div>
+      </div>
+
+      <div class="news-item">
+        <div>
+          <div class="news-date">February 27, 2024</div>
+          <p>🎉 Our paper "<em>Generate Subgoal Images before Act: Unlocking the Chain-of-Thought Reasoning in Diffusion Model for Robot Manipulation with Multimodal Prompts</em>" has been accepted at <strong style="color: var(--accent-color);">CVPR 2024</strong>!</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Publications Section -->
+    <div class="section">
+      <h2><i class="fas fa-file-alt"></i> Publications</h2>
+      
+      <div class="publication-item">
+        <img src="picture/roboannotatorx.png" alt="KISA" class="publication-image" width="200px" height="100px" style="object-fit: cover;" />
+        <div>
+          <h3 style="color: var(--primary-color); margin-bottom: 1rem;">
+            <a href="https://roboannotatex.github.io/" target="_blank" style="text-decoration: none; color: inherit;">
+              RoboAnnotatorX: A Comprehensive and Universal Annotation Framework for Accurate Understanding of Long-horizon Robot Demonstration
+            </a>
+          </h3>
+          <p style="font-size: 1.1rem; margin-bottom: 0.5rem;">
+            <strong>Longxin Kou</strong>, Fei Ni, YAN ZHENG, Peilong Han, Jinyi Liu, Haiqin Cui, Rui Liu, Jianye HAO
           </p>
-        </td>
-      </tr>
-    </table>
-    <h2>About Me</h2>
-    <p>I am currently a second-year master student at the <a href="http://www.icdai.org/">Deep Reinforcement Learning（DRL） Lab</a>, <a href="http://cic.tju.edu.cn/">Tianjin University（TJU）</a>, advised by Prof. <a href="www.icdai.org/jianye.html">Jianye Hao</a>. I am also co-advised by Prof. <a href="https://yanzzzzz.github.io/"> Yan Zheng</a>.  
-      Prior to this, I obtained my bachelor’s degree in Internet of Things Engineering from <a href="https://csee.hnu.edu.cn/index.htm">the School of Information Science and Engineering at Hunan University</a> in June 2023.</p>
-    <p><b>Research interest:</b> Embodied AI, Video Understanding, Multimodel Large Language Model, Video Large Language Model.</p>
-    
-    <h2>Educational Experience</h2>
-    <table class="imgtable">
-      <tr>
-        <td>
-          <a href="https://www.tju.edu.cn/"><img src="picture/tju.png" alt="天津大学" width="80px" /></a>&nbsp;
-        </td>
-        <td align="left">
-          <h3>Master <a href="https://www.tju.edu.cn/">Tianjin University</a> (2023.9 ~ Today)</h3>
-          <ul>
-            <li>
-              <p><b>Department and Major: </b>School of Intelligent and Computing, Software Engineering</p>
-            </li>
-          </ul>
-        </td>
-      </tr>
-    </table>
-    <table class="imgtable">
-      <tr>
-        <td>
-          <a href="https://www.hnu.edu.cn/"><img src="picture/hnu.png" alt="湖南大学" width="80px" /></a>&nbsp;
-        </td>
-        <td align="left">
-          <h3>Postgraduate <a href="https://www.hnu.edu.cn/">Hunan University</a> (2019.9 ~ 2023.7)</h3>
-          <ul>
-            <li>
-              <p><b>Department and Major: </b>School of Information Science and Engineering, Internet of Things Engineering</p>
-            </li>
-            <li>
-              <p><b>Scholarships: </b>National Scholarship(2022.10), Aiwan Medical Scholarship(2023.04)<br /></p>
-            </li>
-            <li>
-              <p><b>Honors: </b>University "Three Good Student" Honor, University Outstanding Graduate<br /></p>
-            </li>
-          </ul>
-        </td>
-      </tr>
-    </table>
-    <h2>News</h2>
-    <div class="container">
-        <!-- <p><strong>Date:</strong> May 2, 2024</p> -->
-         <p><strong  style="color: red;">2025.06.26 </strong>Our paper titled "<em>RoboAnnotatorX: A Comprehensive and Universal Annotation Framework for Accurate Understanding of Long-horizon Robot Demonstration</em>" has been accepted for presentation at <strong  style="color: red;">ICCV 2025!</strong>.</p>
-        <p><strong  style="color: red;">2024.09.26 </strong>Our paper titled "<em>PERIA: Perceive, Reason, Imagine, Act via Holistic Language and Vision Planning for Manipulation</em>" has been accepted for presentation at <strong  style="color: red;">NeurIPS 2024!</strong>.</p>
-        <p><strong  style="color: red;">2024.05.02 </strong>Our paper titled "<em>KISA: A Unified Keyframe Identifier and Skill Annotator for Long-Horizon Robotics Demonstrations</em>" has been accepted for presentation at <strong  style="color: red;">ICML 2024!</strong>.</p>
-        <p><strong  style="color: red;">2024.02.27 </strong>Our paper titled "<em>Generate Subgoal Images before Act: Unlocking the Chain-of-Thought Reasoning in Diffusion Model for Robot Manipulation with Multimodal Prompts.</em>" has been accepted for presentation at <strong  style="color: red;">CVPR 2024!</strong>.</p>
+          <p style="font-style: italic; color: var(--secondary-color);">
+            International Conference on Computer Vision (<strong>ICCV</strong>), 2025. 
+            <span style="background: #8B4513; color: white; padding: 2px 8px; border-radius: 4px; font-size: 0.9rem;">CCF-A</span>
+          </p>
+        </div>
       </div>
 
-    <h2>Pulication</h2>
-    <!-- <ul>
-      <li>
-        <p><a href="http://jos.org.cn/jos/article/abstract/5975?st=search">一种高效低能耗移动数据采集与无线充电策略</a> <br />
-          钟萍，<b>徐爱昆</b>，张艺雯，李亚婷，张一鸣，黄家玮，王建新 <br />
-          <i>软件学报, 2021. <a href="pdf/JOS.pdf">[PDF]</a></i>
-        </p>
-      </li>
-    </ul>
-    <ul>
-      <li>
-        <p><a href="https://www.sciencedirect.com/science/article/abs/pii/S1574119221000560">EMPC: Energy-Minimization
-            Path Construction for Data Collection and Wireless Charging in WRSN</a> <br />
-          Ping Zhong, <b>AiKun Xu</b>, Shigeng Zhang, Yiming Zhang and Yingwen Chen <br />
-          <i>Pervasive and Mobile Computing <b>(PMC)</b>, 2021. [JCR Q2]<a href="pdf/PMC.pdf">[PDF]</a></i>
-        </p>
-      </li>
-    </ul> -->
-    <!-- <h2>发明专利</h2> -->
-    <!-- <ul>
-      <li>
-        <p>基于团划分的静态充电桩部署方法 <br />
-          钟萍, <b>徐爱昆</b>, 奎晓燕, 张艺雯<br />
-          国家发明专利, 公开号:CN109872070A</p>
-      </li>
-    </ul> -->
-
-    <!-- <h2>其他项目</h2> -->
-    <!-- <ul>
-      <li>
-        <p>具有个性化和情境感知的多模态交通推荐算法研究(No. 2021zzts0735) <br />
-          <b>负责人</b>; 经费:1万元 <br />
-          中南大学研究生自主探索项目 <br />
-        </p>
-      </li>
-    </ul>
-    <ul>
-      <li>
-        <p>面向厂区货车的融合式导航系统研究(No. GCX2020347Y) <br />
-          <b>负责人</b>; 经费:1万元 <br />
-          中南大学校企合作项目 <br />
-        </p>
-      </li>
-    </ul>
-    <ul>
-      <li>
-        <p>面向机器人的适应性智能导航与场景感知(No. 2021zzts0753) <br />
-          参与人; 经费:1万元 <br />
-          中南大学研究生自主探索项目 <br /></p>
-      </li>
-    </ul>
-    <div id="footer">
-      <div id="footer-text">
-        <br>Page generated 2021-09-18, by <a href="https://xuaikun.github.io/">Aikun Xu</a>.
+      <div class="publication-item">
+        <img src="picture/kisa.png" alt="KISA" class="publication-image" width="200px" height="100px" style="object-fit: cover;" />
+        <div>
+          <h3 style="color: var(--primary-color); margin-bottom: 1rem;">
+            <a href="https://kisa-for-robotics.github.io" target="_blank" style="text-decoration: none; color: inherit;">
+              KISA: A Unified Keyframe Identifier and Skill Annotator for Long-Horizon Robotics Demonstrations
+            </a>
+          </h3>
+          <p style="font-size: 1.1rem; margin-bottom: 0.5rem;">
+            <strong>Longxin Kou</strong>, Fei Ni, Yan Zheng, Jinyi Liu, Yifu Yuan, Zibin Dong, Jianye Hao
+          </p>
+          <p style="font-style: italic; color: var(--secondary-color);">
+            The Forty-first International Conference on Machine Learning (<strong>ICML</strong>), 2024. 
+            <span style="background: #8B4513; color: white; padding: 2px 8px; border-radius: 4px; font-size: 0.9rem;">CCF-A</span>
+          </p>
+        </div>
       </div>
-    </div> -->
+    </div>
   </div>
 </body>
 
